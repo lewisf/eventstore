@@ -32,7 +32,6 @@ defmodule EventStore.Config do
       {:socket_dir, value}, config -> Keyword.put(config, :socket_dir, get_config_value(value))
       {key, value}, config -> Keyword.put(config, key, get_config_value(value))
     end)
-    |> Keyword.merge(pool: DBConnection.Poolboy)
   end
 
   @doc """

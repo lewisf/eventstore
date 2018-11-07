@@ -69,25 +69,6 @@ defmodule EventStore.Storage.Reader do
     defp from_uuid(uuid), do: UUID.binary_to_string!(uuid)
 
     defp to_naive(%NaiveDateTime{} = naive), do: naive
-
-    if Code.ensure_loaded?(Postgrex.Timestamp) do
-      defp to_naive(%Postgrex.Timestamp{} = timestamp) do
-        %Postgrex.Timestamp{
-          year: year,
-          month: month,
-          day: day,
-          hour: hour,
-          min: minute,
-          sec: second,
-          usec: microsecond
-        } = timestamp
-
-        with {:ok, naive} <-
-              NaiveDateTime.new(year, month, day, hour, minute, second, {microsecond, 6}) do
-          naive
-        end
-      end
-    end
   end
 
   defmodule Query do

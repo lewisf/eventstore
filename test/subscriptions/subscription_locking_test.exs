@@ -77,8 +77,7 @@ defmodule EventStore.Subscriptions.SubscriptionLockingTest do
           @conn,
           "$all",
           subscription_name,
-          2,
-          pool: DBConnection.Poolboy
+          2
         )
 
       :ok = reconnect(subscription)

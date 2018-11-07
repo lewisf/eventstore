@@ -263,8 +263,7 @@ defmodule EventStore.Subscriptions.SubscriptionFsm do
       conn,
       stream_uuid,
       subscription_name,
-      start_from,
-      pool: DBConnection.Poolboy
+      start_from
     )
   end
 
@@ -386,8 +385,7 @@ defmodule EventStore.Subscriptions.SubscriptionFsm do
       conn,
       stream_uuid,
       last_sent + 1,
-      max_size,
-      pool: DBConnection.Poolboy
+      max_size
     )
   end
 
@@ -600,8 +598,7 @@ defmodule EventStore.Subscriptions.SubscriptionFsm do
           conn,
           stream_uuid,
           subscription_name,
-          last_ack,
-          pool: DBConnection.Poolboy
+          last_ack
         )
 
         data
